@@ -112,13 +112,3 @@ jobs:
                   # commit: ${{ env.CURRENT_BRANCH }}
                   token: ${{ secrets.GITHUB_TOKEN }}
                   artifacts: spigot/*
-
-            - name: Setup aliyun oss
-              uses: manyuanrong/setup-ossutil@master
-              with:
-                endpoint: oss-cn-shanghai.aliyuncs.com
-                access-key-id: ${{ secrets.OSS_KEY_ID }}
-                access-key-secret: ${{ secrets.OSS_KEY_SECRET }}
-            
-            - name: Upload to OSS
-              run: ossutil cp -rf spigot/ oss://static-m-jay/spigot/
